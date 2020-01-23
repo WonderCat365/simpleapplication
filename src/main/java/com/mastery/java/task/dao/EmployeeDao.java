@@ -41,13 +41,22 @@ public class EmployeeDao implements EmployeeRepository {
     }
 
     @Override
-    public int update(Employee employee) {
-        return 0;
+    public int update(Employee employee, Long employeeId) {
+        return jdbcTemplate.update(environment
+                        .getProperty("employee.updateById.request"),
+                employee.getFirstName(),
+                employee.getLastName(),
+                employee.getDepartmentId(),
+                employee.getJobTittle(),
+                employee.getGender(),
+                employee.getDateOfBirth(),
+                employeeId);
     }
 
     @Override
-    public int deleteById(Long employeeId) {
-        return 0;
+    public void deleteById(Long employeeId) {
+        jdbcTemplate.update(environment
+                .getProperty("employee.deleteById.request"), employeeId);
     }
 
     @Override
@@ -65,7 +74,20 @@ public class EmployeeDao implements EmployeeRepository {
     }
 
     @Override
-    public Optional<Employee> findById() {
-        return Optional.empty();
+    public Optional<Employee> findById(Long employeeId) {
+        Optional<Employee> employee = jdbcTemplate.queryForObject(environment.
+                        getProperty("employee.findById.request"),
+                new Object[]{employeeId},
+                (rs, rowNum) -> Optional.of(new Employee(
+                        rs.getLong("employee_id"),
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
+                        rs.getLong("department_id"),
+                        rs.getString("job_title"),
+                        rs.getString("gender"),
+                        rs.getDate("date_of_birth")
+                ))
+        );
+        return employee;
     }
 }

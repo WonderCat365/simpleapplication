@@ -11,11 +11,11 @@ public interface EmployeeRepository {
 
     int save(Employee employee);
 
-    int update(Employee employee);
+    int update(Employee employee, Long employeeId);
 
-    int deleteById(Long employeeId);
+    void deleteById(Long employeeId);
 
     List<Employee> findAll();
 
-    Optional<Employee> findById();
+    Optional<Employee> findById(Long employeeId);
 }

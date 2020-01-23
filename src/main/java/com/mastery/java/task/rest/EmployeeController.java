@@ -16,12 +16,36 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @GetMapping
-    public List<Employee> getAllEmployees(){
+    public List<Employee> getAllEmployees() {
         return employeeService.getAllEmployees();
     }
 
     @PostMapping
-    public int createEmployee(@RequestBody Employee employee){
-        return employeeService.createEmployee(employee);
+    public Employee createEmployee(@RequestBody Employee employee) {
+        return employeeService.createEmployee(employee).get();
+    }
+
+    @PostMapping("/{employeeId}")
+    public Employee updateEmployee(@RequestBody Employee employee,
+                                   @PathVariable(value = "employeeId")
+                                           long employeeId) {
+        return employeeService.updateEmployee(employee, employeeId).get();
+    }
+
+    @DeleteMapping("/{employeeId}")
+    public void deleteEmployee(@PathVariable(value = "employeeId")
+                                       long employeeId) {
+        employeeService.deleteEmployee(employeeId);
+    }
+
+    @GetMapping(value = "/{employeeId}")
+    public Employee getEmployeeById(@PathVariable(value = "employeeId")
+                                            long employeeId) {
+        return employeeService.getEmployeeById(employeeId).get();
+    }
+
+    @GetMapping("/getcount")
+    public int getCountOfEmployee() {
+        return employeeService.getCountOfEmployee();
     }
 }
