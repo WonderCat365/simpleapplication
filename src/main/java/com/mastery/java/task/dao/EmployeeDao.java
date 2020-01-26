@@ -55,8 +55,9 @@ public class EmployeeDao implements EmployeeRepository {
     }
 
     @Override
-    public void deleteById(Long employeeId) {
-        jdbcTemplate.update(environment
+    public int deleteById(Long employeeId) {
+
+        return jdbcTemplate.update(environment
                 .getProperty("employee.deleteById.request"), employeeId);
     }
 

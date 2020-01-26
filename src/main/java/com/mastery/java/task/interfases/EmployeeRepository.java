@@ -13,7 +13,7 @@ public interface EmployeeRepository {
 
     int update(Employee employee, Long employeeId);
 
-    void deleteById(Long employeeId);
+    int deleteById(Long employeeId);
 
     List<Employee> findAll();
 

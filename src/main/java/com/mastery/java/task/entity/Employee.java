@@ -2,10 +2,12 @@ package com.mastery.java.task.entity;
 
 import com.mastery.java.task.dto.Gender;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
 
+@Builder
 @Data
 @AllArgsConstructor
 public class Employee {
