@@ -1,5 +1,6 @@
 package com.mastery.java.task.entity;
 
+import com.mastery.java.task.dto.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -14,6 +15,6 @@ public class Employee {
     private String lastName;
     private Long departmentId;
     private String jobTittle;
-    private String gender;
+    private Gender gender;
     private Date dateOfBirth;
 }

@@ -1,5 +1,6 @@
 package com.mastery.java.task.dao;
 
+import com.mastery.java.task.dto.Gender;
 import com.mastery.java.task.entity.Employee;
 import com.mastery.java.task.interfases.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,7 @@ public class EmployeeDao implements EmployeeRepository {
                 employee.getLastName(),
                 employee.getDepartmentId(),
                 employee.getJobTittle(),
-                employee.getGender(),
+                employee.getGender().getGenderField(),
                 employee.getDateOfBirth());
     }
 
@@ -48,7 +49,7 @@ public class EmployeeDao implements EmployeeRepository {
                 employee.getLastName(),
                 employee.getDepartmentId(),
                 employee.getJobTittle(),
-                employee.getGender(),
+                employee.getGender().getGenderField(),
                 employee.getDateOfBirth(),
                 employeeId);
     }
@@ -69,7 +70,7 @@ public class EmployeeDao implements EmployeeRepository {
                         rs.getString("last_name"),
                         rs.getLong("department_id"),
                         rs.getString("job_title"),
-                        rs.getString("gender"),
+                        Gender.valueOf(rs.getString("gender").toUpperCase()),
                         rs.getDate("date_of_birth")));
     }
 
@@ -84,7 +85,7 @@ public class EmployeeDao implements EmployeeRepository {
                         rs.getString("last_name"),
                         rs.getLong("department_id"),
                         rs.getString("job_title"),
-                        rs.getString("gender"),
+                        Gender.valueOf(rs.getString("gender")),
                         rs.getDate("date_of_birth")
                 ))
         );
