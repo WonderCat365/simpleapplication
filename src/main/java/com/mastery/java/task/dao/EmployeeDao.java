@@ -86,7 +86,7 @@ public class EmployeeDao implements EmployeeRepository {
                         rs.getString("last_name"),
                         rs.getLong("department_id"),
                         rs.getString("job_title"),
-                        Gender.valueOf(rs.getString("gender")),
+                        Gender.valueOf(rs.getString("gender").toUpperCase()),
                         rs.getDate("date_of_birth")
                 ))
         );
