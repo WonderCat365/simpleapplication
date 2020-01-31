@@ -25,7 +25,7 @@ public class EmployeeController {
         return employeeService.createEmployee(employee).get();
     }
 
-    @PostMapping("/{employeeId}")
+    @PutMapping("/{employeeId}")
     public Employee updateEmployee(@RequestBody Employee employee,
                                    @PathVariable(value = "employeeId")
                                            long employeeId) {
