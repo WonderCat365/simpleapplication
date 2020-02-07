@@ -13,29 +13,29 @@ import java.util.Optional;
 @Component
 public class EmployeeDao {
 
-    @Autowired
-    private EmployeeRepository employeeRepository;
+  @Autowired
+  private EmployeeRepository employeeRepository;
 
-    public Employee createEmployee(Employee employee) {
-        return employeeRepository.saveAndFlush(employee);
-    }
+  public Employee createEmployee(Employee employee) {
+    return employeeRepository.saveAndFlush(employee);
+  }
 
-    public Optional<Employee> getEmployeeById(int employeeId) {
-        return employeeRepository.findById(employeeId);
-    }
+  public Optional<Employee> getEmployeeById(int employeeId) {
+    return employeeRepository.findById(employeeId);
+  }
 
-    public Optional<Employee> updateEmployee(Employee employeeForUpdate) {
+  public Optional<Employee> updateEmployee(Employee employeeForUpdate) {
 
-        return employeeRepository.findById(employeeForUpdate.getEmployeeId()).isPresent()
-                ? Optional.of(employeeRepository.saveAndFlush(employeeForUpdate))
-                : Optional.empty();
-    }
+    return employeeRepository.findById(employeeForUpdate.getEmployeeId()).isPresent()
+            ? Optional.of(employeeRepository.saveAndFlush(employeeForUpdate))
+            : Optional.empty();
+  }
 
-    public void deleteEmployee(int employeeId) {
-        employeeRepository.deleteById(employeeId);
-    }
+  public void deleteEmployee(int employeeId) {
+    employeeRepository.deleteById(employeeId);
+  }
 
-    public List<Employee> getAllEmployees() {
-        return employeeRepository.findAll();
-    }
+  public List<Employee> getAllEmployees() {
+    return employeeRepository.findAll();
+  }
 }

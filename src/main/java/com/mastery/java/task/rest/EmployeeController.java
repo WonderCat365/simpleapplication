@@ -12,33 +12,32 @@ import java.util.List;
 @RequestMapping(value = "employees", produces = MediaType.APPLICATION_JSON_VALUE)
 public class EmployeeController {
 
-    @Autowired
-    private EmployeeService employeeService;
+  @Autowired
+  private EmployeeService employeeService;
 
-    @GetMapping
-    public List<Employee> getAllEmployees() {
-        return employeeService.getAllEmployees();
-    }
+  @GetMapping
+  public List<Employee> getAllEmployees() {
+    return employeeService.getAllEmployees();
+  }
 
-    @PostMapping
-    public Employee createEmployee(@RequestBody Employee employee) {
-        return employeeService.createEmployee(employee);
-    }
+  @PostMapping
+  public Employee createEmployee(@RequestBody Employee employee) {
+    return employeeService.createEmployee(employee);
+  }
 
-    @PutMapping
-    public Employee updateEmployee(@RequestBody Employee employee) {
-        return employeeService.updateEmployee(employee).get();
-    }
+  @PutMapping
+  public Employee updateEmployee(@RequestBody Employee employee) {
+    return employeeService.updateEmployee(employee).get();
+  }
 
-    @DeleteMapping("/{employeeId}")
-    public void deleteEmployee(@PathVariable(name = "employeeId") int employeeId) {
+  @DeleteMapping("/{employeeId}")
+  public void deleteEmployee(@PathVariable(name = "employeeId") int employeeId) {
 
-        employeeService.deleteEmployee(employeeId);
-    }
+    employeeService.deleteEmployee(employeeId);
+  }
 
-    @GetMapping(value = "/{employeeId}")
-    public Employee getEmployeeById(@PathVariable(value = "employeeId")
-                                            int employeeId) {
-        return employeeService.getEmployeeById(employeeId).get();
-    }
+  @GetMapping(value = "/{employeeId}")
+  public Employee getEmployeeById(@PathVariable(value = "employeeId") int employeeId) {
+    return employeeService.getEmployeeById(employeeId).get();
+  }
 }

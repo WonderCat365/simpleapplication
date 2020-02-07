@@ -16,27 +16,27 @@ import java.util.Date;
 @Entity
 public class Employee {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "employee_id")
-    private Integer employeeId;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "employee_id")
+  private Integer employeeId;
 
-    @Column(name = "first_name")
-    private String firstName;
+  @Column(name = "first_name")
+  private String firstName;
 
-    @Column(name = "last_name")
-    private String lastName;
+  @Column(name = "last_name")
+  private String lastName;
 
-    @Column(name = "department_id")
-    private Long departmentId;
+  @Column(name = "department_id")
+  private Long departmentId;
 
-    @Column(name = "job_title")
-    private String jobTittle;
+  @Column(name = "job_title")
+  private String jobTittle;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "gender", length = 6)
-    private Gender gender;
+  @Enumerated(EnumType.STRING)
+  @Column(name = "gender", length = 6)
+  private Gender gender;
 
-    @Column(name = "date_of_birth")
-    private Date dateOfBirth;
+  @Column(name = "date_of_birth")
+  private Date dateOfBirth;
 }

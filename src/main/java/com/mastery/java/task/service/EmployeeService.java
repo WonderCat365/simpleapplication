@@ -11,28 +11,28 @@ import java.util.Optional;
 @Service
 public class EmployeeService {
 
-    @Autowired
-    private EmployeeDao employeeDao;
+  @Autowired
+  private EmployeeDao employeeDao;
 
-    public List<Employee> getAllEmployees() {
-        return employeeDao.getAllEmployees();
-    }
+  public List<Employee> getAllEmployees() {
+    return employeeDao.getAllEmployees();
+  }
 
-    public Employee createEmployee(Employee employee) {
+  public Employee createEmployee(Employee employee) {
 
-        return employeeDao.createEmployee(employee);
-    }
+    return employeeDao.createEmployee(employee);
+  }
 
-    public Optional<Employee> updateEmployee(Employee employee) {
-        return employeeDao.updateEmployee(employee);
-    }
+  public Optional<Employee> updateEmployee(Employee employee) {
+    return employeeDao.updateEmployee(employee);
+  }
 
-    public void deleteEmployee(int employeeId) {
+  public void deleteEmployee(int employeeId) {
 
-        employeeDao.deleteEmployee(employeeId);
-    }
+    employeeDao.deleteEmployee(employeeId);
+  }
 
-    public Optional<Employee> getEmployeeById(int employeeId) {
-        return employeeDao.getEmployeeById(employeeId);
-    }
+  public Optional<Employee> getEmployeeById(int employeeId) {
+    return employeeDao.getEmployeeById(employeeId);
+  }
 }
